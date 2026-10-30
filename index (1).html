@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sayid &amp; Mouli — Wedding Invitation</title>
+<meta name="description" content="You are invited to the wedding of Sayid and Mouli, 25 November 2026, Lataguri.">
+<meta property="og:title" content="Sayid &amp; Mouli — Wedding Invitation">
+<meta property="og:image" content="photos/sayid-mouli-1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#4a0e1e;--deep:#2b0610;--gold:#c9a24b;--gold2:#e8cf8a;--ivory:#fbf5e6;--ink:#3a1a20;
+--f:"Cormorant Garamond","Noto Serif Bengali",Georgia,serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--ivory);color:var(--ink);font-size:1.2rem;line-height:1.6;overflow-x:hidden}
+body.lock{overflow:hidden}
+:lang(bn),.bn{line-height:1.8}
+a,button,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+img{max-width:100%;display:block}
+.sr{position:absolute;left:-9999px}
+
+/* envelope */
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#6b1a2f,var(--deep) 70%);transition:opacity 1s,visibility 1s}
+#intro.gone{opacity:0;visibility:hidden}
+.env{position:relative;width:min(88vw,420px);aspect-ratio:1.45;border:0;background:none;cursor:pointer;perspective:1200px;color:inherit;padding:0}
+.env .back,.env .front,.env .flap,.env .card{position:absolute;left:0;right:0}
+.env .back{inset:0;background:#7a1f36;border-radius:6px;box-shadow:0 30px 60px #0008}
+.env .card{left:6%;right:6%;top:6%;bottom:6%;background:var(--ivory);border:2px solid var(--gold);display:grid;place-items:center;text-align:center;transition:transform 1.1s .6s cubic-bezier(.2,.8,.2,1);z-index:2}
+.env .card b{display:block;font-size:clamp(1.6rem,7vw,2.3rem);font-weight:600;color:var(--wine);line-height:1.2}
+.env .card i{color:var(--gold);font-size:1rem}
+.env .front{inset:0;z-index:3;background:linear-gradient(135deg,transparent 49.5%,#8e2a45 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 49.5%,#8e2a45 50%) right/50% 100% no-repeat,linear-gradient(0deg,#9c3350 0 55%,transparent 55%);border-radius:6px;pointer-events:none}
+.env .flap{top:0;height:55%;z-index:4;background:linear-gradient(#a23a56,#7a1f36);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s,z-index 0s .45s}
+.seal{position:absolute;z-index:5;left:50%;top:55%;width:54px;height:54px;margin:-27px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gold2),var(--gold) 60%,#8a6a22);display:grid;place-items:center;color:var(--wine);font-size:1.5rem;font-weight:600;box-shadow:0 4px 10px #0007;transition:opacity .4s}
+.hint{position:absolute;bottom:12vh;left:0;right:0;text-align:center;color:var(--gold2);letter-spacing:.12em;animation:pulse 2.2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+#intro.open .flap{transform:rotateX(180deg);z-index:1}
+#intro.open .seal,#intro.open .hint{opacity:0}
+#intro.open .card{transform:translateY(-62%) scale(1.06)}
+#intro.open{animation:fade 1s 2.4s forwards}
+@keyframes fade{to{opacity:0;visibility:hidden}}
+
+/* petals */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+.p{position:absolute;top:-30px;width:14px;height:18px;border-radius:80% 0 80% 0;background:linear-gradient(135deg,#c2415f,#7a1f36);opacity:.75;animation:fall linear infinite}
+.p.g{background:linear-gradient(135deg,var(--gold2),var(--gold))}
+@keyframes fall{to{transform:translate3d(var(--dx),108vh,0) rotate(540deg)}}
+
+/* layout */
+section{padding:clamp(3.5rem,9vw,6rem) 1.25rem;text-align:center}
+.wrap{max-width:900px;margin:auto}
+h1,h2,h3{font-weight:600;color:var(--wine);line-height:1.15}
+h2{font-size:clamp(2rem,6vw,3rem);margin-bottom:1.5rem}
+.orn{display:block;color:var(--gold);letter-spacing:.6em;margin:1rem 0;font-size:1.1rem}
+.dark{background:var(--wine);color:var(--ivory)}
+.dark h2,.dark h3{color:var(--gold2)}
+
+.hero{min-height:100svh;display:grid;align-content:center;justify-items:center;gap:1rem;color:var(--ivory);background:linear-gradient(#2b0610cc,#2b0610ee),url(photos/sayid-mouli-2.jpg) center/cover var(--deep)}
+.hero h1{color:var(--gold2);font-size:clamp(3rem,13vw,7rem);font-weight:400;font-style:italic}
+.hero h1 span{display:block;font-size:.35em;font-style:normal;margin:.1em 0}
+.hero .date{font-size:1.5rem;letter-spacing:.1em}
+.frame{width:min(78vw,340px);aspect-ratio:1;padding:8px;border:2px solid var(--gold);border-radius:50% 50% 8px 8px;overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover;border-radius:50% 50% 4px 4px}
+
+.parents{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:2rem}
+.parents p{border-top:1px solid var(--gold);padding-top:1rem}
+
+.events{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.ev{background:var(--ivory);color:var(--ink);padding:2rem 1.5rem;border:1px solid var(--gold);outline:1px solid var(--gold);outline-offset:-9px}
+.ev h3{font-size:2rem;color:var(--wine)}
+.ev .when{font-weight:600;font-size:1.3rem;margin:.5rem 0}
+.btn{display:inline-block;margin-top:1rem;padding:.7rem 1.6rem;border:1px solid var(--gold);background:var(--wine);color:var(--gold2);text-decoration:none;cursor:pointer;min-height:44px;transition:background .3s,color .3s}
+.btn:hover{background:var(--gold);color:var(--deep)}
+.btn.alt{background:var(--gold);color:var(--deep)}
+.btn.alt:hover{background:var(--gold2)}
+
+#cd{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;max-width:560px;margin:0 auto}
+#cd div{border:1px solid var(--gold);padding:1rem .2rem}
+#cd b{display:block;font-size:clamp(2rem,9vw,3.4rem);font-weight:600;color:var(--gold2);font-variant-numeric:tabular-nums;line-height:1.1}
+
+.gal{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.gal button{border:0;padding:6px;background:var(--gold);cursor:zoom-in}
+.gal img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s}
+.gal button:hover img{transform:scale(1.03)}
+#lb{position:fixed;inset:0;z-index:60;background:#000d;display:none;place-items:center;padding:1rem}
+#lb.on{display:grid}
+#lb img{max-height:88vh;border:3px solid var(--gold)}
+#lb button{position:absolute;top:1rem;right:1rem}
+
+form{display:grid;gap:.9rem;max-width:480px;margin:1.5rem auto 0;text-align:left}
+label{color:var(--gold2)}
+input,select,textarea{width:100%;padding:.7rem;border:1px solid var(--gold);background:var(--ivory);color:var(--ink);min-height:44px}
+footer{background:var(--deep);color:var(--gold2);text-align:center;padding:2rem 1rem 5rem}
+
+/* controls */
+.ctl{position:fixed;right:max(.8rem,env(safe-area-inset-right));bottom:max(.8rem,env(safe-area-inset-bottom));z-index:55;display:flex;gap:.5rem}
+.ctl button{min-width:48px;height:48px;border-radius:24px;border:1px solid var(--gold);background:var(--wine);color:var(--gold2);cursor:pointer;padding:0 .9rem}
+#intro .ctl{position:absolute}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}#petals{display:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="lock">
+
+<div id="intro">
+  <button class="env" id="envBtn" aria-label="Open the invitation / আমন্ত্রণপত্র খুলুন">
+    <span class="back"></span>
+    <span class="card"><span><b>Sayid &amp; Mouli</b><i>25 · 11 · 2026</i></span></span>
+    <span class="front"></span><span class="flap"></span><span class="seal" aria-hidden="true">S&amp;M</span>
+  </button>
+  <p class="hint" data-bn="খুলতে স্পর্শ করুন">Tap to open</p>
+</div>
+<div id="petals" aria-hidden="true"></div>
+
+<div class="ctl">
+  <button id="lang" aria-label="Switch language">বাংলা</button>
+  <button id="mus" aria-pressed="false" aria-label="Play music" data-bn="সুর চালু করুন">♪ Music</button>
+</div>
+
+<main>
+<section class="hero" id="top">
+  <p data-bn="আমরা বিয়ে করছি">We are getting married</p>
+  <div class="frame"><img src="photos/sayid-mouli-1.jpg" alt="Sayid and Mouli together" width="736" height="732" fetchpriority="high"></div>
+  <h1><span class="bn">সাঈদ</span>Sayid <span>&amp;</span> Mouli<span class="bn">মৌলি</span></h1>
+  <p class="date" data-bn="২৫ নভেম্বর ২০২৬ · লাটাগুড়ি">25 November 2026 · Lataguri</p>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 data-bn="সাদর আমন্ত্রণ">With joy, we invite you</h2>
+    <p data-bn="দুই পরিবারের আশীর্বাদে আমাদের নতুন জীবনের শুরুর এই বিশেষ দিনে আপনার উপস্থিতি আমাদের আনন্দ ও আশীর্বাদ বহুগুণ বাড়িয়ে তুলবে।">With the blessings of our families, we begin a new life together. Your presence will make our celebration complete.</p>
+    <span class="orn" aria-hidden="true">❖ ❖ ❖</span>
+    <div class="parents">
+      <p><strong data-bn="পাত্র সাঈদ">Groom — Sayid</strong><br><span data-bn="মাইনুদ্দিন ও হামিদার পুত্র">Son of Mainudin &amp; Hamida</span></p>
+      <p><strong data-bn="পাত্রী মৌলি">Bride — Mouli</strong><br><span data-bn="মলয় সাহা ও সোমা সাহার কন্যা">Daughter of Malay Saha &amp; Soma Saha</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="events">
+  <div class="wrap">
+    <h2 data-bn="অনুষ্ঠানসূচি">Celebrations</h2>
+    <div class="events">
+      <article class="ev">
+        <h3 data-bn="বিবাহ অনুষ্ঠান">Wedding Ceremony</h3>
+        <p class="when" data-bn="২৫ নভেম্বর ২০২৬, সন্ধ্যা ৭:০০">Wednesday, 25 November 2026 · 7:00 PM</p>
+        <p data-bn="রিসোর্ট সোনার বাংলা, গরুমারা জাতীয় উদ্যানের কাছে, NH-31-এর পাশে, লাটাগুড়ি">Resort Sonar Bangla, near Gorumara National Park, beside NH-31, Lataguri</p>
+        <a class="btn" href="https://maps.app.goo.gl/fjqnDYLrDdhFxnRP6" target="_blank" rel="noopener" data-bn="ম্যাপে দেখুন">Open in Google Maps</a>
+      </article>
+      <article class="ev">
+        <h3 data-bn="প্রীতিভোজ">Reception</h3>
+        <p class="when" data-bn="২৯ নভেম্বর ২০২৬, রাত ৮:০০ (নৈশভোজ)">Sunday, 29 November 2026 · Dinner 8:00 PM</p>
+        <p data-bn="ফুডস আইল্যান্ড, কালিয়াগঞ্জ, উত্তর দিনাজপুর, ৭৩৩১২৯">Foods Island, Kaliyaganj, Uttar Dinajpur, 733129</p>
+        <a class="btn" href="https://maps.app.goo.gl/JNQ99zr4fGwV2WQ27" target="_blank" rel="noopener" data-bn="ম্যাপে দেখুন">Open in Google Maps</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-bn="বিয়ের আর বাকি">Until we say “I do”</h2>
+  <div id="cd" role="timer" aria-live="off">
+    <div><b id="d">0</b><span data-bn="দিন">Days</span></div>
+    <div><b id="h">0</b><span data-bn="ঘণ্টা">Hours</span></div>
+    <div><b id="m">0</b><span data-bn="মিনিট">Minutes</span></div>
+    <div><b id="s">0</b><span data-bn="সেকেন্ড">Seconds</span></div>
+  </div>
+  <p id="cdmsg" class="sr" aria-live="polite"></p>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2 data-bn="আমাদের মুহূর্ত">Our moments</h2>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap">
+    <h2 data-bn="উপস্থিতি জানান">Will you join us?</h2>
+    <p data-bn="আপনার উত্তর হোয়াটসঅ্যাপে পাঠান।">Send your reply on WhatsApp.</p>
+    <form id="rf">
+      <div><label for="n" data-bn="আপনার নাম">Your name</label><input id="n" required autocomplete="name"></div>
+      <div><label for="g" data-bn="কতজন আসবেন">Number of guests</label><input id="g" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
+      <div><label for="e" data-bn="কোন অনুষ্ঠানে">Which event</label>
+        <select id="e"><option value="both" data-bn="দুটিতেই">Both</option><option value="wedding" data-bn="বিবাহ (২৫ নভেম্বর)">Wedding (25 Nov)</option><option value="reception" data-bn="প্রীতিভোজ (২৯ নভেম্বর)">Reception (29 Nov)</option></select></div>
+      <div><label for="t" data-bn="শুভেচ্ছা বার্তা (ঐচ্ছিক)">Message (optional)</label><textarea id="t" rows="3"></textarea></div>
+      <button class="btn alt" type="submit" data-bn="হোয়াটসঅ্যাপে পাঠান">Reply on WhatsApp</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span class="orn" aria-hidden="true">❖</span>
+  <p data-bn="মাইনুদ্দিন ও হামিদা · মলয় সাহা ও সোমা সাহা">Mainudin &amp; Hamida · Malay Saha &amp; Soma Saha</p>
+  <p>Sayid &amp; Mouli · 2026</p>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo"><button class="btn" id="lbx" aria-label="Close">✕</button><img alt=""></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)},bn=false;
+/* Add more photos here: put files in /photos and list them */
+var PHOTOS=[["photos/sayid-mouli-1.jpg","Sayid and Mouli, forehead to forehead, in warm evening light"],["photos/sayid-mouli-2.jpg","Sayid and Mouli sharing a quiet moment beside flowers"]];
+var gal=$("#gal");
+PHOTOS.forEach(function(p){var b=document.createElement("button"),i=new Image();
+ i.src=p[0];i.alt=p[1];i.loading="lazy";i.decoding="async";i.width=600;i.height=750;
+ b.type="button";b.setAttribute("aria-label","Enlarge photo");b.appendChild(i);
+ b.onclick=function(){var l=$("#lb");l.querySelector("img").src=p[0];l.querySelector("img").alt=p[1];l.classList.add("on");$("#lbx").focus()};gal.appendChild(b)});
+function closeLb(){$("#lb").classList.remove("on")}
+$("#lbx").onclick=closeLb;$("#lb").onclick=function(e){if(e.target.id==="lb")closeLb()};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeLb()});
+
+/* language */
+var nodes=document.querySelectorAll("[data-bn]");
+nodes.forEach(function(n){n.setAttribute("data-en",n.textContent)});
+$("#lang").onclick=function(){bn=!bn;document.documentElement.lang=bn?"bn":"en";
+ nodes.forEach(function(n){n.textContent=n.getAttribute(bn?"data-bn":"data-en")});
+ this.textContent=bn?"English":"বাংলা";
+ $("#mus").setAttribute("aria-label",bn?"সুর চালু/বন্ধ":"Toggle music");
+ try{localStorage.setItem("lang",bn?"bn":"en")}catch(e){}};
+try{if(localStorage.getItem("lang")==="bn")$("#lang").click()}catch(e){}
+
+/* petals */
+var pw=$("#petals");
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
+ for(var k=0;k<16;k++){var p=document.createElement("i");p.className="p"+(k%4===0?" g":"");
+  p.style.cssText="left:"+(Math.random()*100)+"%;--dx:"+((Math.random()*160-80)|0)+"px;animation-duration:"+(9+Math.random()*9)+"s;animation-delay:-"+(Math.random()*14)+"s;transform:scale("+(.6+Math.random()*.8)+")";pw.appendChild(p)}}
+
+/* envelope */
+var intro=$("#intro");
+$("#envBtn").onclick=function(){intro.classList.add("open");musicOn();
+ setTimeout(function(){intro.classList.add("gone");document.body.classList.remove("lock");$("#top").setAttribute("tabindex","-1");$("#top").focus({preventScroll:true})},2800)};
+
+/* countdown — 25 Nov 2026, 7:00 PM IST */
+var T=new Date("2026-11-25T19:00:00+05:30").getTime(),last=-1;
+function tick(){var x=T-Date.now();if(x<0)x=0;
+ var d=Math.floor(x/864e5),h=Math.floor(x%864e5/36e5),m=Math.floor(x%36e5/6e4),s=Math.floor(x%6e4/1e3);
+ $("#d").textContent=d;$("#h").textContent=h;$("#m").textContent=m;$("#s").textContent=s;
+ if(d!==last){last=d;$("#cdmsg").textContent=d+" days to go"}}
+tick();setInterval(tick,1000);
+
+/* RSVP */
+$("#rf").onsubmit=function(e){e.preventDefault();
+ var ev=$("#e").value,names={both:"Wedding & Reception",wedding:"Wedding (25 Nov)",reception:"Reception (29 Nov)"};
+ var msg="Hello! I'm happy to confirm for Sayid & Mouli's wedding.\nName: "+$("#n").value.trim()+"\nGuests: "+$("#g").value+"\nEvent: "+names[ev]+($("#t").value.trim()?"\nMessage: "+$("#t").value.trim():"");
+ window.open("https://wa.me/916296078880?text="+encodeURIComponent(msg),"_blank","noopener")};
+
+/* soft piano (synthesised with Web Audio; no audio file needed) */
+var ac,master,timer,playing=false,step=0;
+var CH=[[57,60,64,69],[53,57,60,65],[48,52,55,60],[55,59,62,67]]; /* Am F C G */
+function hz(n){return 440*Math.pow(2,(n-69)/12)}
+function note(n,t,v){var o=ac.createOscillator(),o2=ac.createOscillator(),g=ac.createGain();
+ o.type="sine";o2.type="triangle";o.frequency.value=hz(n);o2.frequency.value=hz(n)*2;
+ var g2=ac.createGain();g2.gain.value=.18;o2.connect(g2);g2.connect(g);o.connect(g);g.connect(master);
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.015);g.gain.exponentialRampToValueAtTime(.0008,t+2.6);
+ o.start(t);o2.start(t);o.stop(t+2.7);o2.stop(t+2.7)}
+function sched(){var t=ac.currentTime+.05,c=CH[Math.floor(step/8)%4],pat=[0,1,2,3,2,1,3,2],i=step%8;
+ note(c[pat[i]],t,.16);if(i===0){note(c[0]-12,t,.12)}if(i===4&&Math.random()>.5)note(c[3]+12,t+.2,.07);step++}
+function musicOn(){try{
+ if(!ac){var C=window.AudioContext||window.webkitAudioContext;if(!C)return;ac=new C();master=ac.createGain();master.gain.value=.55;
+  var dl=ac.createDelay();dl.delayTime.value=.32;var fb=ac.createGain();fb.gain.value=.35;dl.connect(fb);fb.connect(dl);master.connect(dl);dl.connect(ac.destination);master.connect(ac.destination)}
+ if(ac.state==="suspended")ac.resume();if(playing)return;playing=true;sched();timer=setInterval(sched,720);ui()}catch(e){}}
+function musicOff(){playing=false;clearInterval(timer);if(ac)ac.suspend();ui()}
+function ui(){var b=$("#mus");b.setAttribute("aria-pressed",playing);b.textContent=(playing?"❚❚ ":"♪ ")+(bn?(playing?"থামান":"সুর"):(playing?"Pause":"Music"));
+ b.setAttribute("aria-label",playing?(bn?"সুর থামান":"Pause music"):(bn?"সুর চালু করুন":"Play music"))}
+$("#mus").removeAttribute("data-bn");
+$("#mus").onclick=function(){playing?musicOff():musicOn()};
+$("#lang").addEventListener("click",ui);
+document.addEventListener("visibilitychange",function(){if(!ac)return;if(document.hidden)ac.suspend();else if(playing)ac.resume()});
+})();
+</script>
+</body>
+</html>
